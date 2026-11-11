@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102C48">
+  <title>About Us | Mavuno Credit</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .about-hero {
+      background: linear-gradient(120deg, #091D32, #194568);
+      padding: 85px 7%;
+      color: white;
+      text-align: center;
+    }
+
+    .about-hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .about-hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #D5DFE9;
+    }
+
+    .about-content {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 25px;
+    }
+
+    .about-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: auto auto 55px;
+    }
+
+    .about-intro h2 {
+      color: #102C48;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .about-intro p {
+      color: #718096;
+      font-size: 15px;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .mission-card {
+      padding: 30px;
+      border: 1px solid #E7EBF0;
+      border-radius: 10px;
+      background: white;
+    }
+
+    .mission-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: #F7F0E1;
+      color: #A57C2D;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .mission-card h3 {
+      color: #102C48;
+      margin-bottom: 12px;
+    }
+
+    .mission-card p {
+      color: #718096;
+      font-size: 14px;
+    }
+
+    .about-cta {
+      background: #F5F7FA;
+      text-align: center;
+      padding: 55px 20px;
+      border-radius: 12px;
+      margin-top: 55px;
+    }
+
+    .about-cta h2 {
+      color: #102C48;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .about-cta p {
+      color: #718096;
+      margin-bottom: 22px;
+    }
+
+    @media(max-width: 750px) {
+      .mission-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-hero h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <span>MAVUNO</span>
+    <small>CREDIT</small>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle">☰</button>
+
+  <nav id="navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="apply.html">Apply for Loan</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html" class="login-link">Login</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="about-hero">
+    <span class="eyebrow">ABOUT MAVUNO CREDIT</span>
+    <h1>Grow. Progress. Prosper.</h1>
+    <p>
+      We aim to make the loan application experience
+      accessible, convenient and transparent through
+      digital financial services.
+    </p>
+  </section>
+
+  <section class="about-content">
+
+    <div class="about-intro">
+      <span class="eyebrow">WHO WE ARE</span>
+      <h2>Welcome to Mavuno Credit</h2>
+
+      <p>
+        Mavuno Credit is a financial services business
+        focused on providing a convenient online experience
+        for customers seeking credit. Our platform is designed
+        to simplify applications, support responsible lending
+        and make it easier to follow loan application progress.
+      </p>
+    </div>
+
+    <div class="mission-grid">
+
+      <article class="mission-card">
+        <div class="mission-icon">◎</div>
+        <h3>Our Mission</h3>
+        <p>
+          To provide a convenient and transparent digital
+          lending experience while supporting responsible
+          access to credit.
+        </p>
+      </article>
+
+      <article class="mission-card">
+        <div class="mission-icon">◇</div>
+        <h3>Our Vision</h3>
+        <p>
+          To build a trusted and accessible digital
+          financial services platform that supports
+          individual and business growth.
+        </p>
+      </article>
+
+      <article class="mission-card">
+        <div class="mission-icon">✓</div>
+        <h3>Our Values</h3>
+        <p>
+          Transparency, accountability, customer privacy,
+          responsible lending and professional service
+          guide our operations.
+        </p>
+      </article>
+
+    </div>
+
+    <div class="about-cta">
+      <h2>Start Your Financial Journey</h2>
+      <p>Explore our online loan application process.</p>
+      <a href="apply.html" class="btn btn-gold">
+        Apply for a Loan →
+      </a>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="logo footer-logo">
+    <span>MAVUNO</span>
+    <small>CREDIT</small>
+  </div>
+
+  <p>Grow. Progress. Prosper.</p>
+
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <p class="copyright">
+    © <span id="year"></span> Mavuno Credit. All rights reserved.
+  </p>
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>
+
