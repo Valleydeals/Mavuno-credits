@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102C48">
+  <title>Track Application | Mavuno Credit</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .tracking-wrapper {
+      min-height: 75vh;
+      background: #F5F7FA;
+      padding: 60px 20px;
+    }
+
+    .tracking-container {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .tracking-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .tracking-heading h1 {
+      color: #102C48;
+      font-size: 32px;
+    }
+
+    .tracking-heading p {
+      color: #718096;
+      margin-top: 8px;
+    }
+
+    .tracking-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.05);
+    }
+
+    .tracking-card h3 {
+      color: #102C48;
+      margin-bottom: 18px;
+    }
+
+    .tracking-form {
+      display: flex;
+      gap: 12px;
+    }
+
+    .tracking-form input {
+      flex: 1;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid #DCE2E9;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .tracking-form button {
+      border: none;
+    }
+
+    .tracking-result {
+      margin-top: 25px;
+      display: none;
+    }
+
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #E7EBF0;
+    }
+
+    .result-header h3 {
+      margin: 0;
+    }
+
+    .status {
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .pending {
+      background: #FFF3D8;
+      color: #936515;
+    }
+
+    .approved {
+      background: #DCFCE7;
+      color: #166534;
+    }
+
+    .rejected {
+      background: #FEE2E2;
+      color: #991B1B;
+    }
+
+    .review {
+      background: #DBEAFE;
+      color: #1E40AF;
+    }
+
+    .result-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      padding: 25px 0;
+    }
+
+    .detail p {
+      font-size: 12px;
+      color: #718096;
+      margin-bottom: 5px;
+    }
+
+    .detail h4 {
+      font-size: 15px;
+      color: #102C48;
+    }
+
+    .tracking-message {
+      padding: 15px;
+      background: #F5F7FA;
+      border-radius: 7px;
+      color: #526173;
+      font-size: 14px;
+    }
+
+    .error-message {
+      color: #DC2626;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+
+    @media(max-width: 550px) {
+      .tracking-form {
+        flex-direction: column;
+      }
+
+      .tracking-form button {
+        width: 100%;
+      }
+
+      .result-details {
+        grid-template-columns: 1fr;
+      }
+
+      .tracking-card {
+        padding: 22px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <span>MAVUNO</span>
+    <small>CREDIT</small>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle">☰</button>
+
+  <nav id="navigation">
+    <a href="index.html">Home</a>
+    <a href="apply.html">Apply for Loan</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="login.html" class="login-link">Login</a>
+  </nav>
+</header>
+
+<main class="tracking-wrapper">
+
+  <div class="tracking-container">
+
+    <div class="tracking-heading">
+      <span class="eyebrow">MAVUNO CREDIT</span>
+      <h1>Track Your Application</h1>
+      <p>Check the progress of your loan application.</p>
+    </div>
+
+    <div class="tracking-card">
+
+      <h3>Application Reference Number</h3>
+
+      <form class="tracking-form" id="trackingForm">
+
+        <input type="text"
+          id="applicationNumber"
+          placeholder="Enter application reference"
+          maxlength="30"
+          required>
+
+        <button type="submit" class="btn btn-gold">
+          Track Application
+        </button>
+
+      </form>
+
+      <div id="trackingError" class="error-message"></div>
+
+      <div class="tracking-result" id="trackingResult">
+
+        <div class="result-header">
+          <h3>Application Details</h3>
+          <span id="applicationStatus"
+            class="status pending">Pending</span>
+        </div>
+
+        <div class="result-details">
+
+          <div class="detail">
+            <p>Application Number</p>
+            <h4 id="resultNumber">—</h4>
+          </div>
+
+          <div class="detail">
+            <p>Applicant Name</p>
+            <h4 id="resultName">—</h4>
+          </div>
+
+          <div class="detail">
+            <p>Loan Amount Requested</p>
+            <h4 id="resultAmount">—</h4>
+          </div>
+
+          <div class="detail">
+            <p>Submission Date</p>
+            <h4 id="resultDate">—</h4>
+          </div>
+
+        </div>
+
+        <div class="tracking-message" id="statusMessage">
+          Your application is awaiting review.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="logo footer-logo">
+    <span>MAVUNO</span>
+    <small>CREDIT</small>
+  </div>
+
+  <p>Grow. Progress. Prosper.</p>
+
+  <p class="copyright">
+    © <span id="year"></span> Mavuno Credit. All rights reserved.
+  </p>
+</footer>
+
+<script src="app.js"></script>
+<script src="application-status.js"></script>
+
+</body>
+</html>
