@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102C48">
+<title>Admin Dashboard | Mavuno Credit</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.admin-layout {
+  display:flex;
+  min-height:100vh;
+  background:#F5F7FA;
+}
+
+.admin-sidebar {
+  width:245px;
+  background:#102C48;
+  color:white;
+  padding:25px 16px;
+  flex-shrink:0;
+}
+
+.admin-brand {
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:2px;
+  padding:10px;
+  margin-bottom:30px;
+}
+
+.admin-brand span {
+  display:block;
+  color:#D8B66A;
+  font-size:12px;
+  letter-spacing:5px;
+}
+
+.admin-sidebar a {
+  display:block;
+  color:#D5DFE9;
+  text-decoration:none;
+  padding:13px;
+  border-radius:6px;
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+.admin-sidebar a:hover,
+.admin-sidebar a.active {
+  background:#244663;
+  color:#D8B66A;
+}
+
+.admin-main {
+  flex:1;
+  min-width:0;
+}
+
+.admin-topbar {
+  background:white;
+  padding:20px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #E7EBF0;
+}
+
+.admin-topbar h2 {
+  color:#102C48;
+  font-size:20px;
+}
+
+.admin-user {
+  font-size:13px;
+  font-weight:bold;
+  color:#102C48;
+}
+
+.admin-content {
+  padding:30px;
+}
+
+.admin-welcome {
+  margin-bottom:25px;
+}
+
+.admin-welcome h1 {
+  color:#102C48;
+  font-size:27px;
+}
+
+.admin-welcome p {
+  color:#718096;
+  font-size:14px;
+}
+
+.admin-stats {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-bottom:30px;
+}
+
+.admin-stat {
+  background:white;
+  padding:22px;
+  border:1px solid #E7EBF0;
+  border-radius:10px;
+}
+
+.admin-stat p {
+  color:#718096;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.admin-stat h2 {
+  color:#102C48;
+  font-size:25px;
+}
+
+.admin-stat small {
+  color:#A57C2D;
+}
+
+.admin-panel {
+  background:white;
+  padding:25px;
+  border-radius:10px;
+  border:1px solid #E7EBF0;
+  margin-bottom:25px;
+}
+
+.admin-panel-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.admin-panel-header h3 {
+  color:#102C48;
+  font-size:18px;
+}
+
+.admin-table-wrap {
+  overflow-x:auto;
+}
+
+.admin-table {
+  width:100%;
+  min-width:650px;
+  border-collapse:collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  text-align:left;
+  padding:15px 12px;
+  border-bottom:1px solid #E7EBF0;
+  font-size:13px;
+}
+
+.admin-table th {
+  background:#F8FAFC;
+  color:#718096;
+}
+
+.admin-table td {
+  color:#263445;
+}
+
+.admin-empty {
+  padding:35px;
+  text-align:center;
+  color:#718096;
+  font-size:14px;
+}
+
+.admin-actions {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.admin-action {
+  background:#F5F7FA;
+  padding:20px;
+  border-radius:8px;
+  color:#102C48;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.admin-action:hover {
+  background:#F7F0E1;
+}
+
+.admin-logout {
+  margin-top:30px;
+  color:#F0C2C2 !important;
+}
+
+@media(max-width:1000px) {
+  .admin-stats {
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px) {
+  .admin-layout {
+    flex-direction:column;
+  }
+
+  .admin-sidebar {
+    width:100%;
+    padding:15px;
+  }
+
+  .admin-brand {
+    margin-bottom:10px;
+  }
+
+  .admin-sidebar nav {
+    display:flex;
+    overflow-x:auto;
+    gap:5px;
+  }
+
+  .admin-sidebar a {
+    white-space:nowrap;
+  }
+
+  .admin-topbar {
+    padding:17px;
+  }
+
+  .admin-content {
+    padding:18px 13px;
+  }
+
+  .admin-stats {
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .admin-stat {
+    padding:15px;
+  }
+
+  .admin-stat h2 {
+    font-size:20px;
+  }
+
+  .admin-actions {
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+<aside class="admin-sidebar">
+
+  <div class="admin-brand">
+    MAVUNO
+    <span>CREDIT ADMIN</span>
+  </div>
+
+  <nav>
+    <a href="admin.html" class="active">Dashboard</a>
+    <a href="admin-applications.html">Loan Applications</a>
+    <a href="admin-customers.html">Customers</a>
+    <a href="admin-loans.html">Active Loans</a>
+    <a href="admin-payments.html">Payments</a>
+    <a href="admin-reports.html">Financial Reports</a>
+    <a href="admin-settings.html">Settings</a>
+    <a href="index.html" class="admin-logout">Exit Admin</a>
+  </nav>
+
+</aside>
+
+<main class="admin-main">
+
+  <header class="admin-topbar">
+    <h2>Admin Dashboard</h2>
+    <div class="admin-user">Administrator</div>
+  </header>
+
+  <section class="admin-content">
+
+    <div class="admin-welcome">
+      <h1>Overview</h1>
+      <p>Welcome to the Mavuno Credit management system.</p>
+    </div>
+
+    <div class="admin-stats">
+
+      <div class="admin-stat">
+        <p>Total Customers</p>
+        <h2>0</h2>
+        <small>Registered accounts</small>
+      </div>
+
+      <div class="admin-stat">
+        <p>Pending Applications</p>
+        <h2>0</h2>
+        <small>Awaiting review</small>
+      </div>
+
+      <div class="admin-stat">
+        <p>Active Loans</p>
+        <h2>0</h2>
+        <small>Currently issued</small>
+      </div>
+
+      <div class="admin-stat">
+        <p>Total Disbursed</p>
+        <h2>KSh 0</h2>
+        <small>Loan principal issued</small>
+      </div>
+
+    </div>
+
+    <div class="admin-panel">
+
+      <div class="admin-panel-header">
+        <h3>Recent Loan Applications</h3>
+        <a href="admin-applications.html"
+           class="btn btn-gold">
+          View All
+        </a>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Application ID</th>
+              <th>Customer</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td colspan="5" class="admin-empty">
+                No applications available yet.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="admin-panel">
+
+      <div class="admin-panel-header">
+        <h3>Quick Management</h3>
+      </div>
+
+      <div class="admin-actions">
+
+        <a href="admin-applications.html"
+           class="admin-action">
+          Review Applications →
+        </a>
+
+        <a href="admin-customers.html"
+           class="admin-action">
+          Manage Customers →
+        </a>
+
+        <a href="admin-payments.html"
+           class="admin-action">
+          View Payments →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+</div>
+
+</body>
+</html>
