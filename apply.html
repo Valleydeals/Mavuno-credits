@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102C48">
+  <title>Apply for a Loan | Mavuno Credit</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .application-wrapper {
+      background: #F5F7FA;
+      padding: 55px 5%;
+      min-height: 80vh;
+    }
+
+    .application-container {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .application-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .application-heading h1 {
+      color: #102C48;
+      font-size: 34px;
+    }
+
+    .application-heading p {
+      color: #718096;
+      margin-top: 8px;
+    }
+
+    .application-form {
+      background: white;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.05);
+    }
+
+    .form-section {
+      margin-bottom: 28px;
+    }
+
+    .form-section h3 {
+      color: #102C48;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #E7EBF0;
+      margin-bottom: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      color: #263445;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #DCE2E9;
+      border-radius: 6px;
+      outline: none;
+      font-size: 14px;
+      background: white;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #B18A3F;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .form-notice {
+      background: #F7F0E1;
+      padding: 16px;
+      border-left: 4px solid #D8B66A;
+      font-size: 13px;
+      color: #51452F;
+      margin: 20px 0;
+    }
+
+    .consent {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13px;
+      margin: 18px 0;
+    }
+
+    .consent input {
+      margin-top: 4px;
+    }
+
+    .submit-application {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .form-message {
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    @media(max-width:600px) {
+      .application-form {
+        padding: 22px 16px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .application-heading h1 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <span>MAVUNO</span>
+    <small>CREDIT</small>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle">☰</button>
+
+  <nav id="navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="apply.html">Apply for Loan</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html" class="login-link">Login</a>
+  </nav>
+</header>
+
+<main class="application-wrapper">
+
+  <div class="application-container">
+
+    <div class="application-heading">
+      <span class="eyebrow">MAVUNO CREDIT</span>
+      <h1>Loan Application</h1>
+      <p>Complete the form below to request a loan.</p>
+    </div>
+
+    <form class="application-form" id="loanApplicationForm">
+
+      <section class="form-section">
+        <h3>01. Personal Information</h3>
+
+        <div class="form-grid">
+
+          <div class="form-group full">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName"
+              name="fullName" required
+              maxlength="150"
+              placeholder="Enter your full legal name">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone"
+              name="phone" required
+              placeholder="07XXXXXXXX"
+              pattern="(?:\+254|254|0)7[0-9]{8}|(?:\+254|254|0)1[0-9]{8}">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email"
+              name="email" maxlength="150"
+              placeholder="example@email.com">
+          </div>
+
+          <div class="form-group">
+            <label for="nationalId">National ID Number *</label>
+            <input type="text" id="nationalId"
+              name="nationalId" required
+              maxlength="50"
+              placeholder="Enter ID number">
+          </div>
+
+          <div class="form-group">
+            <label for="county">County *</label>
+            <input type="text" id="county"
+              name="county" required
+              placeholder="Enter your county">
+          </div>
+
+          <div class="form-group full">
+            <label for="address">Residential Address *</label>
+            <textarea id="address" name="address"
+              required placeholder="Enter your residential location"></textarea>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h3>02. Loan Information</h3>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="loanAmount">Loan Amount (KES) *</label>
+            <input type="number" id="loanAmount"
+              name="loanAmount" required
+              min="1" step="1"
+              placeholder="Enter requested amount">
+          </div>
+
+          <div class="form-group">
+            <label for="period">Repayment Period *</label>
+            <select id="period" name="period" required>
+              <option value="">Select period</option>
+              <option value="1">1 Month</option>
+              <option value="2">2 Months</option>
+              <option value="3">3 Months</option>
+              <option value="6">6 Months</option>
+              <option value="9">9 Months</option>
+              <option value="12">12 Months</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label for="purpose">Purpose of Loan *</label>
+            <select id="purpose" name="purpose" required>
+              <option value="">Select loan purpose</option>
+              <option value="Business">Business</option>
+              <option value="Education">Education</option>
+              <option value="Emergency">Emergency</option>
+              <option value="Agriculture">Agriculture</option>
+              <option value="Personal">Personal needs</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h3>03. Financial Information</h3>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="income">Monthly Income (KES) *</label>
+            <input type="number" id="income"
+              name="income" required
+              min="0" step="0.01"
+              placeholder="Monthly income">
+          </div>
+
+          <div class="form-group">
+            <label for="incomeSource">Income Source *</label>
+            <select id="incomeSource"
+              name="incomeSource" required>
+              <option value="">Select income source</option>
+              <option value="Employment">Employment</option>
+              <option value="Business">Business</option>
+              <option value="Farming">Farming</option>
+              <option value="Self Employed">Self Employed</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="form-notice">
+        <strong>Important:</strong>
+        Submitting this application does not guarantee loan approval.
+        Your application will undergo review, including assessment
+        of your repayment ability and applicable eligibility criteria.
+        All applicable loan charges and repayment terms will be
+        disclosed before you accept a loan offer.
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" id="consent" required>
+        <span>
+          I confirm that the information provided is accurate and
+          consent to the processing of my personal information
+          for loan assessment in accordance with the privacy notice.
+        </span>
+      </label>
+
+      <button type="submit"
+        class="btn btn-gold submit-application">
+        Submit Loan Application →
+      </button>
+
+      <div id="formMessage" class="form-message"></div>
+
+    </form>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="logo footer-logo">
+    <span>MAVUNO</span>
+    <small>CREDIT</small>
+  </div>
+  <p>Grow. Progress. Prosper.</p>
+  <p class="copyright">
+    © <span id="year"></span> Mavuno Credit. All rights reserved.
+  </p>
+</footer>
+
+<script src="app.js"></script>
+<script src="apply.js"></script>
+
+</body>
+</html>
