@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102C48">
+  <title>My Dashboard | Mavuno Credit</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .dashboard {
+      display: flex;
+      min-height: 80vh;
+      background: #F5F7FA;
+    }
+
+    .sidebar {
+      width: 245px;
+      background: #102C48;
+      color: white;
+      padding: 30px 18px;
+      flex-shrink: 0;
+    }
+
+    .sidebar h3 {
+      font-size: 17px;
+      margin: 25px 10px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 13px;
+      margin-bottom: 7px;
+      border-radius: 6px;
+      color: #D5DFE9;
+      font-size: 14px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: #244663;
+      color: #D8B66A;
+    }
+
+    .dashboard-content {
+      flex: 1;
+      padding: 35px;
+      min-width: 0;
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .dashboard-header h1 {
+      color: #102C48;
+      font-size: 27px;
+    }
+
+    .dashboard-header p {
+      color: #718096;
+      font-size: 14px;
+    }
+
+    .customer-badge {
+      background: white;
+      padding: 12px 18px;
+      border-radius: 8px;
+      color: #102C48;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 23px;
+      border-radius: 10px;
+      border: 1px solid #E7EBF0;
+    }
+
+    .stat-card p {
+      color: #718096;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .stat-card h2 {
+      color: #102C48;
+      font-size: 25px;
+    }
+
+    .stat-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      background: #F7F0E1;
+      color: #A57C2D;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .dashboard-panel {
+      background: white;
+      border: 1px solid #E7EBF0;
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+    }
+
+    .panel-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .panel-heading h3 {
+      color: #102C48;
+      font-size: 18px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      background: #FFF3D8;
+      color: #936515;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    .empty-state .empty-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .empty-state h3 {
+      color: #102C48;
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      color: #718096;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    .transactions {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+    }
+
+    .transactions th,
+    .transactions td {
+      padding: 15px 12px;
+      text-align: left;
+      border-bottom: 1px solid #E7EBF0;
+      font-size: 13px;
+    }
+
+    .transactions th {
+      color: #718096;
+      background: #F9FAFB;
+    }
+
+    .transactions td {
+      color: #263445;
+    }
+
+    .dashboard-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .dashboard-actions a {
+      display: inline-block;
+    }
+
+    .logout-btn {
+      color: #F0C2C2 !important;
+    }
+
+    @media(max-width: 900px) {
+      .dashboard {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        padding: 15px;
+      }
+
+      .sidebar h3 {
+        margin: 5px 10px 15px;
+      }
+
+      .sidebar nav {
+        display: flex;
+        overflow-x: auto;
+        gap: 5px;
+      }
+
+      .sidebar nav a {
+        white-space: nowrap;
+      }
+
+      .dashboard-content {
+        padding: 22px 15px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width: 500px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-header h1 {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <span>MAVUNO</span>
+    <small>CREDIT</small>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle">☰</button>
+
+  <nav id="navigation">
+    <a href="index.html">Home</a>
+    <a href="apply.html">Apply for Loan</a>
+    <a href="login.html" class="login-link">Login</a>
+  </nav>
+</header>
+
+<main class="dashboard">
+
+  <aside class="sidebar">
+    <h3>Customer Portal</h3>
+
+    <nav>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="apply.html">Apply for Loan</a>
+      <a href="application-status.html">My Applications</a>
+      <a href="dashboard.html#transactions">Transactions</a>
+      <a href="contact.html">Support</a>
+      <a href="login.html" class="logout-btn">Logout</a>
+    </nav>
+  </aside>
+
+  <section class="dashboard-content">
+
+    <div class="dashboard-header">
+      <div>
+        <h1>Customer Dashboard</h1>
+        <p>Welcome to your Mavuno Credit account.</p>
+      </div>
+
+      <div class="customer-badge">
+        My Account
+      </div>
+    </div>
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon">KSh</div>
+        <p>Approved Loan Amount</p>
+        <h2>KSh 0.00</h2>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">↗</div>
+        <p>Outstanding Balance</p>
+        <h2>KSh 0.00</h2>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">◷</div>
+        <p>Application Status</p>
+        <h2 style="font-size:19px;">No Application</h2>
+      </div>
+
+    </div>
+
+    <div class="dashboard-panel">
+
+      <div class="panel-heading">
+        <h3>My Loan Applications</h3>
+        <span class="status-badge">Account Overview</span>
+      </div>
+
+      <div class="empty-state">
+        <div class="empty-icon">📄</div>
+
+        <h3>No Loan Applications Yet</h3>
+
+        <p>
+          You have not submitted a loan application.
+          Start your application today.
+        </p>
+
+        <a href="apply.html" class="btn btn-gold">
+          Apply for a Loan →
+        </a>
+      </div>
+
+    </div>
+
+    <div class="dashboard-panel" id="transactions">
+
+      <div class="panel-heading">
+        <h3>Recent Transactions</h3>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="transactions">
+          <thead>
+            <tr>
+              <th>Transaction</th>
+              <th>Reference</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>No transactions</td>
+              <td>—</td>
+              <td>KSh 0.00</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="dashboard-panel">
+      <div class="panel-heading">
+        <h3>Quick Actions</h3>
+      </div>
+
+      <div class="dashboard-actions">
+        <a href="apply.html" class="btn btn-gold">
+          Apply for Loan
+        </a>
+
+        <a href="application-status.html" class="btn btn-outline"
+           style="border-color:#102C48;color:#102C48;">
+          Track Application
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="logo footer-logo">
+    <span>MAVUNO</span>
+    <small>CREDIT</small>
+  </div>
+  <p>Grow. Progress. Prosper.</p>
+  <p class="copyright">
+    © <span id="year"></span> Mavuno Credit. All rights reserved.
+  </p>
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>
