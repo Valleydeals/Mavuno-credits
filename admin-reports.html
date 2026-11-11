@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports | Mavuno Credit</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-content{padding:25px 0}
+    .page-heading{margin-bottom:22px}
+    .page-heading h1{color:var(--navy)}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px;margin-bottom:25px}
+    .stat-card,.panel{background:white;padding:20px;border-radius:12px;box-shadow:0 3px 15px rgba(0,0,0,.06)}
+    .stat-card p{color:var(--muted);margin:0 0 8px}
+    .stat-card h2{color:var(--navy);margin:0;font-size:23px}
+    .panel{margin-bottom:22px}
+    .panel h2{color:var(--navy);font-size:19px;margin-bottom:18px}
+    .report-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px}
+    .report-item{padding:15px;background:#f5f7fa;border-radius:9px}
+    .report-item p{color:var(--muted);margin:0 0 8px}
+    .report-item h3{color:var(--navy);margin:0}
+    .report-note{background:#fff8e6;color:#765b19;padding:13px;border-radius:8px;margin-bottom:20px;font-size:13px}
+    .report-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+    .report-actions button{padding:11px 17px;border:0;border-radius:7px;cursor:pointer;background:var(--navy);color:white}
+    .report-actions button.secondary{background:#e8edf3;color:var(--navy)}
+    .table-wrap{overflow-x:auto}
+    table{width:100%;border-collapse:collapse;min-width:500px}
+    th,td{padding:12px;text-align:left;border-bottom:1px solid #eee}
+    th{background:#f5f7fa;color:var(--navy)}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-content">
+    <a href="admin.html" class="logo">MAVUNO CREDIT</a>
+    <button id="menuToggle" class="menu-toggle">☰</button>
+    <nav id="navigation">
+      <a href="admin.html">Dashboard</a>
+      <a href="admin-applications.html">Applications</a>
+      <a href="admin-customers.html">Customers</a>
+      <a href="admin-loans.html">Loans</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-reports.html">Reports</a>
+      <a href="index.html">Website</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container admin-content">
+
+  <div class="page-heading">
+    <h1>Financial Reports</h1>
+    <p>Monitor lending performance and financial activity.</p>
+  </div>
+
+  <div class="report-note">
+    These figures are placeholders until the secured backend and
+    database are connected. Do not use them for financial decisions.
+  </div>
+
+  <div class="report-actions">
+    <button id="refreshReport">Refresh Reports</button>
+    <button class="secondary" id="printReport">Print Report</button>
+  </div>
+
+  <section class="stats-grid">
+    <div class="stat-card">
+      <p>Total Customers</p>
+      <h2 id="reportCustomers">0</h2>
+    </div>
+
+    <div class="stat-card">
+      <p>Loans Issued</p>
+      <h2 id="reportLoans">0</h2>
+    </div>
+
+    <div class="stat-card">
+      <p>Total Loan Amount</p>
+      <h2 id="reportIssued">KSh 0</h2>
+    </div>
+
+    <div class="stat-card">
+      <p>Outstanding Balance</p>
+      <h2 id="reportOutstanding">KSh 0</h2>
+    </div>
+
+    <div class="stat-card">
+      <p>Total Repayments</p>
+      <h2 id="reportRepayments">KSh 0</h2>
+    </div>
+
+    <div class="stat-card">
+      <p>Overdue Loans</p>
+      <h2 id="reportOverdue">0</h2>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Loan Portfolio Summary</h2>
+
+    <div class="report-grid">
+      <div class="report-item">
+        <p>Active Loans</p>
+        <h3 id="activeLoans">0</h3>
+      </div>
+
+      <div class="report-item">
+        <p>Closed Loans</p>
+        <h3 id="closedLoans">0</h3>
+      </div>
+
+      <div class="report-item">
+        <p>Pending Applications</p>
+        <h3 id="pendingApplications">0</h3>
+      </div>
+
+      <div class="report-item">
+        <p>Rejected Applications</p>
+        <h3 id="rejectedApplications">0</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Monthly Performance</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Loans Issued</th>
+            <th>Repayments</th>
+            <th>Outstanding</th>
+          </tr>
+        </thead>
+
+        <tbody id="monthlyReport">
+          <tr>
+            <td colspan="4">No monthly records available.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+<script src="admin-reports.js"></script>
+</body>
+</html>
