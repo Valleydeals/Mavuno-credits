@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102C48">
+  <title>Contact Us | Mavuno Credit</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .contact-hero {
+      background: linear-gradient(120deg, #091D32, #194568);
+      padding: 65px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .contact-hero h1 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .contact-hero p {
+      color: #D5DFE9;
+    }
+
+    .contact-wrapper {
+      background: #F5F7FA;
+      padding: 60px 20px;
+    }
+
+    .contact-container {
+      max-width: 1050px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 25px;
+    }
+
+    .contact-info,
+    .contact-form-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.04);
+    }
+
+    .contact-info h2,
+    .contact-form-card h2 {
+      color: #102C48;
+      margin-bottom: 12px;
+      font-size: 23px;
+    }
+
+    .contact-info > p {
+      color: #718096;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 23px;
+    }
+
+    .contact-icon {
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      background: #F7F0E1;
+      color: #A57C2D;
+      border-radius: 8px;
+    }
+
+    .contact-item h4 {
+      color: #102C48;
+      margin-bottom: 3px;
+    }
+
+    .contact-item p {
+      color: #718096;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .contact-form label {
+      color: #263445;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 13px;
+      margin-top: 7px;
+      border: 1px solid #DCE2E9;
+      border-radius: 6px;
+      outline: none;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: #B18A3F;
+    }
+
+    .contact-form button {
+      border: none;
+    }
+
+    .contact-message {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    @media(max-width:750px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-hero h1 {
+        font-size: 30px;
+      }
+
+      .contact-info,
+      .contact-form-card {
+        padding: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <span>MAVUNO</span>
+    <small>CREDIT</small>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle">☰</button>
+
+  <nav id="navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="apply.html">Apply for Loan</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html" class="login-link">Login</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="contact-hero">
+    <span class="eyebrow">WE ARE HERE TO HELP</span>
+    <h1>Contact Mavuno Credit</h1>
+    <p>Have a question? Send us a message.</p>
+  </section>
+
+  <section class="contact-wrapper">
+
+    <div class="contact-container">
+
+      <div class="contact-info">
+
+        <h2>Get in Touch</h2>
+
+        <p>
+          Contact our support team for assistance
+          with your account and loan applications.
+        </p>
+
+        <div class="contact-item">
+          <div class="contact-icon">☎</div>
+          <div>
+            <h4>Phone Support</h4>
+            <p>Contact details coming soon</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div>
+            <h4>Email Support</h4>
+            <p>Email address coming soon</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">⌖</div>
+          <div>
+            <h4>Location</h4>
+            <p>Kenya</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">◷</div>
+          <div>
+            <h4>Working Hours</h4>
+            <p>Business hours to be confirmed</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="contact-form-card">
+
+        <h2>Send Us a Message</h2>
+
+        <form class="contact-form" id="contactForm">
+
+          <label>
+            Full Name
+            <input type="text" id="contactName"
+              maxlength="150"
+              placeholder="Your full name" required>
+          </label>
+
+          <label>
+            Email Address
+            <input type="email" id="contactEmail"
+              maxlength="150"
+              placeholder="Your email address" required>
+          </label>
+
+          <label>
+            Phone Number
+            <input type="tel" id="contactPhone"
+              placeholder="Your phone number" required>
+          </label>
+
+          <label>
+            Subject
+            <select id="contactSubject" required>
+              <option value="">Select subject</option>
+              <option value="Loan Application">Loan Application</option>
+              <option value="Loan Repayment">Loan Repayment</option>
+              <option value="Account Support">Account Support</option>
+              <option value="General Enquiry">General Enquiry</option>
+              <option value="Complaint">Complaint</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <label>
+            Your Message
+            <textarea id="contactText"
+              maxlength="3000"
+              placeholder="Write your message here..."
+              required></textarea>
+          </label>
+
+          <button type="submit" class="btn btn-gold">
+            Send Message →
+          </button>
+
+          <div id="contactMessage"
+            class="contact-message"></div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="logo footer-logo">
+    <span>MAVUNO</span>
+    <small>CREDIT</small>
+  </div>
+
+  <p>Grow. Progress. Prosper.</p>
+
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="apply.html">Apply</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <p class="copyright">
+    © <span id="year"></span> Mavuno Credit. All rights reserved.
+  </p>
+</footer>
+
+<script src="app.js"></script>
+<script src="contact.js"></script>
+
+</body>
+</html>
