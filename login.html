@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102C48">
+  <title>Customer Login | Mavuno Credit</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .auth-wrapper {
+      min-height: 80vh;
+      padding: 55px 20px;
+      background: #F5F7FA;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      background: white;
+      padding: 38px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+    }
+
+    .auth-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .auth-heading h1 {
+      color: #102C48;
+      font-size: 28px;
+    }
+
+    .auth-heading p {
+      color: #718096;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .auth-form label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #263445;
+    }
+
+    .auth-form input {
+      width: 100%;
+      padding: 14px;
+      margin-top: 7px;
+      border: 1px solid #DCE2E9;
+      border-radius: 6px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .auth-form input:focus {
+      border-color: #B18A3F;
+    }
+
+    .password-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .password-row a {
+      font-size: 12px;
+      color: #A57C2D;
+    }
+
+    .auth-form button {
+      width: 100%;
+      border: none;
+    }
+
+    .auth-bottom {
+      text-align: center;
+      font-size: 14px;
+      color: #718096;
+      margin-top: 25px;
+    }
+
+    .auth-bottom a {
+      color: #A57C2D;
+      font-weight: bold;
+    }
+
+    .auth-message {
+      font-size: 13px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <span>MAVUNO</span>
+    <small>CREDIT</small>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle">☰</button>
+
+  <nav id="navigation">
+    <a href="index.html">Home</a>
+    <a href="apply.html">Apply for Loan</a>
+    <a href="register.html">Register</a>
+  </nav>
+</header>
+
+<main class="auth-wrapper">
+
+  <div class="auth-card">
+
+    <div class="auth-heading">
+      <span class="eyebrow">WELCOME BACK</span>
+      <h1>Customer Login</h1>
+      <p>Login to manage your Mavuno Credit account.</p>
+    </div>
+
+    <form class="auth-form" id="loginForm">
+
+      <label>
+        Email Address
+        <input type="email" id="loginEmail"
+          placeholder="Enter your email address"
+          maxlength="150" required>
+      </label>
+
+      <label>
+        <div class="password-row">
+          <span>Password</span>
+          <a href="#" id="forgotPassword">Forgot password?</a>
+        </div>
+
+        <input type="password" id="loginPassword"
+          placeholder="Enter your password"
+          required>
+      </label>
+
+      <button type="submit" class="btn btn-gold">
+        Login to Account →
+      </button>
+
+      <div id="loginMessage" class="auth-message"></div>
+
+    </form>
+
+    <div class="auth-bottom">
+      Don't have an account?
+      <a href="register.html">Create Account</a>
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="logo footer-logo">
+    <span>MAVUNO</span>
+    <small>CREDIT</small>
+  </div>
+
+  <p>Grow. Progress. Prosper.</p>
+
+  <p class="copyright">
+    © <span id="year"></span> Mavuno Credit. All rights reserved.
+  </p>
+</footer>
+
+<script src="app.js"></script>
+<script src="login.js"></script>
+
+</body>
+</html>
